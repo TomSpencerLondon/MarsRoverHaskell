@@ -12,6 +12,9 @@ spec = do
     context "created instance" $ do
         it "has expected initial position" $ position rover `shouldBe` (0, 0)
         it "has expected initial facing" $ facing rover `shouldBe` North
+    context "standing still" $
+        it "does nothing when no commands are received" $
+            commands rover "" `shouldBe` rover
     context "receiving single command" $ do
         context "forward" $ do
             it "moves forward one field in the direction it is facing" $ do
