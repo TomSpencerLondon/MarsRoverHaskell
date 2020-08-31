@@ -11,3 +11,5 @@ spec = do
     let rover = mkRover
     it "has expected initial position" $ do
         position rover `shouldBe` (0, 0)
+    it "has expected initial facing" $ do
+        facing rover `shouldBe` North
