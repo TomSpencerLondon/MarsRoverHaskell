@@ -9,7 +9,10 @@ spec :: Spec
 spec = do
   describe "Mars Rover" $ do
     let rover = mkRover
-    it "has expected initial position" $ do
-        position rover `shouldBe` (0, 0)
-    it "has expected initial facing" $ do
-        facing rover `shouldBe` North
+    context "created instance" $ do
+        it "has expected initial position" $ position rover `shouldBe` (0, 0)
+        it "has expected initial facing" $ facing rover `shouldBe` North
+    context "receiving single command" $ do
+        context "forward" $ do
+            it "moves forward one field in the direction it is facing" $ do
+                commands rover "f" `shouldBe` rover { position = (0, 1) }
