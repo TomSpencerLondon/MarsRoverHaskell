@@ -1,18 +1,9 @@
 module MarsRoverSpec (spec) where
 
 import Import
+import MarsRover
 import Test.Hspec
 import Test.Hspec.QuickCheck
-
-data Rover = Rover
-    {
-        position :: Position
-    }
-
-type Position = (Int, Int)
-
-mkRover :: Rover
-mkRover = Rover { position = (0, 0) }
 
 spec :: Spec
 spec = do

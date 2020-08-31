@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4d3a29cb99bc0c6ad3aba76b78242d57db7bf51d21a9f0c88fd2a4f7868b657a
+-- hash: 382a3845d375b1cea40a0bc826d1fc90c33597bab8d44c942d79f75790dc93d5
 
 name:           MarsRoverHaskell
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       Import
+      MarsRover
       Run
       Types
       Util
