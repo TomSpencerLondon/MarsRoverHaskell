@@ -1,3 +1,5 @@
+{-# LANGUAGE RecordWildCards #-}
+
 module MarsRover (
     mkRover
     , commands
@@ -12,7 +14,8 @@ data Rover = Rover
     } deriving (Show, Eq)
 
 data Facing =
-    North deriving (Show, Eq)
+    North | West
+    deriving (Show, Eq)
 
 type Position = (Int, Int)
 
@@ -27,4 +30,7 @@ command :: Char -> Rover -> Rover
 command 'f' = forward
 
 forward :: Rover -> Rover
-forward rover = rover { position = (0, 1) }
+forward rover@Rover{..} = rover { position = newPosition position facing}
+    where
+        newPosition (x, y) North = (0, 1)
+        newPosition (x, y) West = (1, 0)
