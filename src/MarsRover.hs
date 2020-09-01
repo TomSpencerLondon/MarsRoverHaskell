@@ -24,4 +24,7 @@ commands rover [] = rover
 commands rover (x:xs) = command x rover
 
 command :: Char -> Rover -> Rover
-command 'f' rover = rover {position = (0, 1) }
+command 'f' rover = forward rover
+
+forward :: Rover -> Rover
+forward rover = rover { position = (0, 1) }
