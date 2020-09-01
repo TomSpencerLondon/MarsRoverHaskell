@@ -22,3 +22,4 @@ spec = do
                 commands rover {position = (21, 43)} "f" `shouldBe` rover {position = (21, 44)}
                 commands rover{facing = West} "f" `shouldBe` rover { position = (1, 0), facing = West }
                 commands rover{position = (1, 2), facing = West} "f" `shouldBe` rover { position = (2, 2), facing = West }
+                commands rover{position = (1, 2), facing = South} "f" `shouldBe` rover { position = (1, 1), facing = South }

@@ -13,8 +13,10 @@ data Rover = Rover
     , facing :: Facing
     } deriving (Show, Eq)
 
-data Facing =
-    North | West
+data Facing
+    = North
+    | West
+    | South
     deriving (Show, Eq)
 
 type Position = (Int, Int)
@@ -33,4 +35,5 @@ forward :: Rover -> Rover
 forward rover@Rover{..} = rover { position = newPosition position facing}
     where
         newPosition (x, y) North = (x, y+1)
+        newPosition (x, y) South = (x, y - 1)
         newPosition (x, y) West = (x + 1, y)
