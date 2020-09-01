@@ -17,6 +17,7 @@ data Facing
     = North
     | West
     | South
+    | East
     deriving (Show, Eq)
 
 type Position = (Int, Int)
@@ -37,3 +38,4 @@ forward rover@Rover{..} = rover { position = newPosition position facing}
         newPosition (x, y) North = (x, y+1)
         newPosition (x, y) South = (x, y - 1)
         newPosition (x, y) West = (x + 1, y)
+        newPosition (x, y) East = (x - 1, y)
