@@ -42,4 +42,7 @@ forward rover@Rover{..} = rover { position = newPosition position facing}
         newPosition (x, y) East = (x - 1, y)
 
 turnLeft :: Rover -> Rover
-turnLeft rover = rover {facing = West}
+turnLeft rover@Rover{..} = rover {facing = newFacing facing }
+    where
+        newFacing North = West
+        newFacing West = South
