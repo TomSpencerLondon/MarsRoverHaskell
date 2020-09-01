@@ -19,4 +19,5 @@ spec = do
         context "forward" $ do
             it "moves forward one field in the direction it is facing" $ do
                 commands rover "f" `shouldBe` rover { position = (0, 1) }
+                commands rover {position = (21, 43)} "f" `shouldBe` rover {position = (21, 44)}
                 commands rover{facing = West} "f" `shouldBe` rover { position = (1, 0), facing = West }
