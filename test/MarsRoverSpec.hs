@@ -24,3 +24,6 @@ spec = do
                 commands rover{position = (1, 2), facing = West} "f" `shouldBe` rover { position = (2, 2), facing = West }
                 commands rover{position = (1, 2), facing = South} "f" `shouldBe` rover { position = (1, 1), facing = South }
                 commands rover{position = (1, 2), facing = East} "f" `shouldBe` rover { position = (0, 2), facing = East }
+        context "left" $
+            it "turns left by 90 degrees" $ do
+                commands rover "l" `shouldBe` rover {facing = West}
