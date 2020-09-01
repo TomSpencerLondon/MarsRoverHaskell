@@ -33,4 +33,4 @@ forward :: Rover -> Rover
 forward rover@Rover{..} = rover { position = newPosition position facing}
     where
         newPosition (x, y) North = (x, y+1)
-        newPosition (x, y) West = (1, 0)
+        newPosition (x, y) West = (x + 1, y)
