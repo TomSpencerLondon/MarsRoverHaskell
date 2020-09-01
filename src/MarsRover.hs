@@ -21,4 +21,7 @@ mkRover = Rover { position = (0, 0), facing = North }
 
 commands :: Rover -> String -> Rover
 commands rover [] = rover
-commands rover list = rover { position = (0, 1) }
+commands rover (x:xs) = command x rover
+
+command :: Char -> Rover -> Rover
+command 'f' rover = rover {position = (0, 1) }
