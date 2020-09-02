@@ -29,3 +29,4 @@ spec = do
                 commands rover "l" `shouldBe` rover {facing = West}
                 commands rover {facing = West} "l" `shouldBe` rover {facing = South}
                 commands rover {facing = South} "l" `shouldBe` rover {facing = East}
+                commands rover {facing = East} "l" `shouldBe` rover {facing = North}

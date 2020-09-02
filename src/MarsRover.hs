@@ -47,3 +47,4 @@ turnLeft rover@Rover{..} = rover {facing = newFacing facing }
         newFacing North = West
         newFacing West = South
         newFacing South = East
+        newFacing East = North
