@@ -44,3 +44,6 @@ spec = do
                 commands rover {facing = East} "r" `shouldBe` rover {facing = South}
                 commands rover {facing = South} "r" `shouldBe` rover {facing = West}
                 commands rover {facing = West} "r" `shouldBe` rover {facing = North}
+        context "multiple comamnds" $
+          it "executes the commands from left to right" $ do
+            commands rover "ff" `shouldBe` rover {position = (0, 2)}
