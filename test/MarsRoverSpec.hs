@@ -30,3 +30,9 @@ spec = do
                 commands rover {facing = West} "l" `shouldBe` rover {facing = South}
                 commands rover {facing = South} "l" `shouldBe` rover {facing = East}
                 commands rover {facing = East} "l" `shouldBe` rover {facing = North}
+        context "right" $
+            it "turns right by 90 degrees" $ do
+                commands rover "l" `shouldBe` rover {facing = West}
+                commands rover {facing = East} "r" `shouldBe` rover {facing = South}
+                commands rover {facing = South} "r" `shouldBe` rover {facing = West}
+                commands rover {facing = West} "r" `shouldBe` rover {facing = North}

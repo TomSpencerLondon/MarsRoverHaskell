@@ -32,6 +32,7 @@ commands rover (x:xs) = command x rover
 command :: Char -> Rover -> Rover
 command 'f' = forward
 command 'l' = turnLeft
+command 'r' = turnRight
 
 forward :: Rover -> Rover
 forward rover@Rover{..} = rover { position = newPosition position facing}
@@ -48,3 +49,6 @@ turnLeft rover@Rover{..} = rover {facing = newFacing facing }
         newFacing West = South
         newFacing South = East
         newFacing East = North
+
+turnRight :: Rover -> Rover
+turnRight rover = turnLeft $ turnLeft $ turnLeft rover
