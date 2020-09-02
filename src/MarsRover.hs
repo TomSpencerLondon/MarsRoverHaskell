@@ -26,6 +26,7 @@ mkRover :: Rover
 mkRover = Rover { position = (0, 0), facing = North }
 
 commands :: Rover -> String -> Rover
+commands rover list = foldl(\ acc c -> command c acc) rover list
 commands rover [] = rover
 commands rover (x:xs) = commands (command x rover) xs
 
