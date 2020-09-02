@@ -46,3 +46,4 @@ turnLeft rover@Rover{..} = rover {facing = newFacing facing }
     where
         newFacing North = West
         newFacing West = South
+        newFacing South = East

@@ -28,3 +28,4 @@ spec = do
             it "turns left by 90 degrees" $ do
                 commands rover "l" `shouldBe` rover {facing = West}
                 commands rover {facing = West} "l" `shouldBe` rover {facing = South}
+                commands rover {facing = South} "l" `shouldBe` rover {facing = East}
