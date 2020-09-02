@@ -33,11 +33,12 @@ command :: Char -> Rover -> Rover
 command 'f' = forward
 command 'l' = turnLeft
 command 'r' = turnRight
+command 'b' = backward
 
 forward :: Rover -> Rover
 forward rover@Rover{..} = rover { position = newPosition position facing}
     where
-        newPosition (x, y) North = (x, y+1)
+        newPosition (x, y) North = (x, y + 1)
         newPosition (x, y) South = (x, y - 1)
         newPosition (x, y) West = (x + 1, y)
         newPosition (x, y) East = (x - 1, y)
@@ -51,4 +52,7 @@ turnLeft rover@Rover{..} = rover {facing = newFacing facing }
         newFacing East = North
 
 turnRight :: Rover -> Rover
-turnRight rover = turnLeft $ turnLeft $ turnLeft rover
+turnRight = turnLeft . turnLeft . turnLeft
+
+backward :: Rover -> Rover
+backward = turnLeft . turnLeft . forward . turnLeft . turnLeft

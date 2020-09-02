@@ -24,6 +24,14 @@ spec = do
                 commands rover{position = (1, 2), facing = West} "f" `shouldBe` rover { position = (2, 2), facing = West }
                 commands rover{position = (1, 2), facing = South} "f" `shouldBe` rover { position = (1, 1), facing = South }
                 commands rover{position = (1, 2), facing = East} "f" `shouldBe` rover { position = (0, 2), facing = East }
+        context "backward" $ do
+            it "moves backward one field in the direction it is facing" $ do
+                commands rover "f" `shouldBe` rover { position = (0, 1) }
+                commands rover {position = (21, 43)} "b" `shouldBe` rover {position = (21, 42)}
+                commands rover{facing = West} "b" `shouldBe` rover { position = (-1, 0), facing = West }
+                commands rover{position = (1, 2), facing = West} "b" `shouldBe` rover { position = (0, 2), facing = West }
+                commands rover{position = (1, 2), facing = South} "b" `shouldBe` rover { position = (1, 3), facing = South }
+                commands rover{position = (1, 2), facing = East} "b" `shouldBe` rover { position = (2, 2), facing = East }
         context "left" $
             it "turns left by 90 degrees" $ do
                 commands rover "l" `shouldBe` rover {facing = West}
